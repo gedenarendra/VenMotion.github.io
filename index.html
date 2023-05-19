@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VenMotion</title>
+    <!-- Data Aos (Animation Slide) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Responsive Style -->
+    <link rel="stylesheet" href="style.css">
+    <style type="text/css"> 
+        
+    /* Font Family */
+    @font-face {
+        font-family: adumu;
+        src: url(Adumu.ttf);
+        font-weight: bold;
+    }
+    @font-face {
+    font-family: mont;
+    src: url(MontserratAlternates-ExtraBold.ttf);
+    font-weight: bold;
+    }
+
+    @font-face {
+        font-family: monserrat-low;
+        src: url(MontserratAlternates-Medium.ttf);
+        font-weight: normal;
+    }
+
+    @font-face {
+        font-family: satoshi;
+        src: url(Satoshi-Light.ttf);
+        font-weight: normal;
+    }
+
+    /* HTML */
+    *{
+            margin: 0px;
+            padding: 0px;
+            color: #32313b;
+        }
+
+        html{
+            background-color: rgb(241, 242, 243);
+            scroll-behavior: smooth;
+        }
+
+        .body{
+            font-family: sans-serif;
+        }
+
+    /*Navbar*/
+       nav{
+        display: flex;
+        justify-content: space-around;
+        padding: 15px 0px;
+        margin: 30px;
+        color: #32313b;
+        cursor: pointer;
+        background-color: transparent;
+        border-radius: 40px;
+        box-shadow: 5px 10px #888;
+        }
+
+        nav.sticky{
+            background: grey;
+            padding: 5px 100px;
+            padding: 15px 0px;
+            position: fixed;
+            color: black;
+            border-bottom: 2px solid #202746;
+            opacity: 1 ;
+        }
+
+        nav h1{
+            padding-left: 100px;
+            padding-right: 150px;
+            font-family: 'Segoe UI';
+            font-size: 25px;
+        }
+
+        nav ul{
+        display: flex;
+        list-style: none;
+        font-family: 'Segoe UI';
+       }
+
+       nav ul li:hover{
+        background: rgb(0, 0, 0, 0.7);
+        border-radius: 6px;
+       }
+
+       li a{
+        text-align: justify;
+        padding-left: 30px;
+        padding-right: 30px;
+        font-size: 22px;
+        text-decoration: none;
+        color: #000;
+        border-left: 2px solid #32313b;
+       }
+
+       /* Gak Dipake */
+       nav.sticky ul li a{
+        text-align: right;
+        padding-left: 30px;
+        padding-right: 30px;
+        font-size: 22px;
+        color: #000;
+        border-left: 2px solid #202746;
+       }
+
+       /* Dipake */
+       li a:hover{
+        color: white;
+        text-decoration: underline;
+       }
+
+       .background{
+        max-width: 100%;
+        height: 100vh;
+        background: url(Untitled-1.png);
+        background-attachment: fixed;
+        background-size: cover;
+        overflow: hidden;
+       }
+    
+
+    /*Card*/
+    .kartu{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 100%;
+        background: rgb(241, 242, 243);
+        justify-content: space-around;
+        padding: 30px;
+    }
+
+    .BIO{
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        font-family: mont;
+        color: #fff;
+        background-color: #32313b;
+    }
+
+    .kartu .card{
+        position: relative;
+        width: 300px;
+        height: 400px;
+        margin: 30px;
+        box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.1);
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
+        border-top: 1px solid rgba(225, 255, 255, 0.5);
+        border-left: 1px solid rgba(225, 255, 255, 0.5);
+        backdrop-filter: blur(5px);
+        display: inline-block;
+    }
+
+    .kartu .card .content{
+        padding: 20px;
+        text-align: center;
+        transform: translateY(100px);
+        opacity: 0;
+        transition: 0.5s;
+        
+    }
+
+    .kartu .card:hover .content{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+    .kartu .card .content h2{
+        position: absolute;
+        top: -30px;
+        left: 40px;
+        font-size: 8em;
+        color: rgba(225, 255, 255, 0.05);
+    }
+
+    .kartu .card .content h3{
+        font-family: mont;
+        font-size: 1.8em;
+        color: slategray;
+        z-index: 1;
+    }
+
+    .kartu .card .content p{
+        font-size: 1em;
+        color: black;
+        font-weight: 300;
+        font-family: satoshi;
+        margin-top: 5px;
+    }
+
+
+
+    .kartu .card .content h4{
+        text-align: left;
+        font-family: mont;
+        justify-content: center;
+        font-size: 1.15em;
+    }
+
+    .kartu .card .content h5{
+        font-size: 1.15em;
+        text-align: left;
+    }
+
+    .kartu .card .content a{
+        font-family: satoshi;
+        position: relative;
+        display: inline-block;
+        padding: 8px 20px;
+        margin-top: 5px;
+        background-attachment: #fff;
+        color: #000;
+        border-radius: 20px;
+        text-decoration: none;
+        font-weight: 500;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
+    }
+
+    .kolom{
+        padding-top: 200px;
+        padding-bottom: 250px;
+      
+    }
+
+    .kolom2{
+        margin: 125px 50px;
+    }
+
+    .kolom2 h1{
+        font-family: mont;
+        font-size: 65px;
+        color: white;
+        padding-bottom: 10px;
+    }
+
+    .kolom2 h2{
+        font-family: monserrat-low;
+        font-size: 25px;
+    }
+
+
+
+    /* Container */
+
+    .container{
+        padding-top: 50px;
+        padding-bottom: 60px;
+        background-color: #fff;
+    }
+
+    .container3{
+        padding-top: 90px;
+        padding-bottom: 225px;
+        background-color: rgb(245, 246, 250);
+    }
+
+
+    /*Deskripsi*/
+
+    #text{
+            color: #32313b;
+        }
+
+    #img{
+        float: left;
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-top: 100px;
+    }
+
+    #img2{
+        float: right;
+        padding-right: 50px;
+        padding-left: 60px;
+        padding-top: 150px;
+    }
+
+    .deskripsi{
+        font-size: 40px;
+        font-weight: bold;
+        padding-bottom: 20px;
+        font-family: mont;
+        text-align: center;
+        color: #000;
+    }
+
+    .deskripsi3{
+        color: #000;
+        font-size: 40px;
+        font-weight: bold;
+        font-family: mont;
+        text-align: center;
+        padding-bottom: 20px;
+        padding-top: 120px;
+        padding-left: 80px;
+    }
+
+
+
+    .isi{
+        text-align: justify;
+        font-family: satoshi;
+        padding-right: 80px;
+    }
+
+    .isi2{
+        text-align: justify;
+        font-family: satoshi;
+        padding-left: 80px;
+    }
+
+    /*Manfaat*/
+
+    #Cara{
+        position: relative;
+        display: flex;
+        padding: 60px 0px;
+        padding-top: 100px;
+    }
+    #Cara2{
+        padding: 10px;
+    }
+
+    .Material{
+        text-align: center;
+        padding-top: 60px;
+        background-color: #fff;
+    }
+
+    .Material img:hover{
+        opacity: 80%;
+    }
+
+    .Material1{
+        text-align: center;
+        position: relative;
+        margin-bottom: 80px;
+    }
+
+    #Contoh1{
+        border-right: 2px solid black;
+        border-left: 2px solid black;  
+        
+    }
+
+    #Contoh3{
+        border-right: 2px solid black;
+        border-left: 2px solid black;    
+        
+    }
+
+    .Material1 h2{
+        font-size: 50px;
+        font-family: mont;
+        color: #000;
+    }
+    
+
+    .Material1 h3{
+        font-family: mont;
+        font-size: 1.5em;
+        color: black;
+        padding: 15px 0px;
+    }
+
+    .Material1 p{
+        text-align: justify;
+        padding: 0px 20px;
+        font-family: satoshi;
+        font-size: 20px;
+    }
+
+    /* Alasan */
+    #alasan{
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        align-items: left;
+        padding: 120px;
+        margin: 0px 0px 50px 0px;
+        background-color: rgb(241, 242, 243);
+        border-top: #fff solid 30px;
+    }
+
+    .alasan-isi{
+        justify-content: left;
+        text-align: left;
+        font-family: mont;
+        font-weight: bold;
+    }
+
+    .contain{
+        margin-right: 350px;
+    }
+
+    </style>
+
+</head>
+<body>    
+
+    <!--Navbar-->
+    <div class="background" id="Home">
+        <nav>
+            <h1>Vending-Motion</h1>
+            <div>
+            <ul>
+                <li><a href="#Home">Home</a></li>
+                <li><a href="#Pengertian">Pengertian</a></li>
+                <li><a href="#Manfaat">Manfaat</a></li>
+                <li><a href="#cara">Penggunaan</a></li>
+                <li><a href="#alasan">Alasan</a></li>
+            </ul>
+            </div>
+        </nav>
+        <div class="kolom2" data-aos="fade-down">
+            <h1>VenMotion</h1>
+            <h1 id="text">Website</h1>
+            <h2>VendMotion merupakan website yang</h2>
+            <h2>meyediakan beberapa informasi </h2>
+            <h2>terkait Vending Machine </h2>
+        </div>
+    </div>
+
+        <!--Container-->
+        <div class="container">
+            <section id="Pengertian">
+                <img id="img" src="Assets/kanishka-burnwal-Zo84_kLRBUE-unsplash.jpg" width="45%" height="100%" data-aos="fade-up" data-aos-duration="1500">
+                <div class="kolom" data-aos="zoom-in" data-aos-duration="1500">
+                    <p class="deskripsi">Apa Itu VenMotion?</p>
+                    <H2 class="isi">
+                    Dengan dibuatnya website "VenMotion" diharapkan para pelaku UMKM yang ingin menjual 
+                    beberapa produknya dengan diletakan di dalam Vending Machine yang selalu hidup, 
+                    guna mengatasi Penurunan Perekonomian pelaku UMKM di indonesia,hingga masa yang akan datang.
+                    </H2>
+                </div>
+            </section>
+        </div>
+        <div class="container3">
+            <section id="Manfaat">
+                <img id="img2" src="Assets/ji-seongkwang-lvu7gpzIT8k-unsplash.jpg" width="45%" height="30%" data-aos="fade-up" data-aos-duration="1500">
+                <div class="kolom3" data-aos="fade-right" data-aos-duration="1500">
+                    <p class="deskripsi3" >Manfaat VenMotion</p>
+                    <h2 class="isi2">Manfaat Dengan adanya VendMotion terhadap Pelaku UMKM 
+                        1. Dapat meningkatkan jangkauan penjualan dengan memasukan beberapa produknya ke VendMotion tersebut. 
+                        Selain Meningkatnya jangkauan pemasaran, 
+                        2. Dapat Meningkatkan Angka penjualan karena Mesin tersebut aktif selama 24 jam, 
+                        3. Pelaku UMKM juga akan merasakan keefisienan waktu dan tenaga yang dihabiskan karena hanya perlu membuat produk dan memasukannya ke Mesin tersebut, 
+                        4. Selain itu juga lebih fleksibel karena pembayaran bisa melalui non tunai menggunakan Balipay.
+                    </h2>
+                </div>
+            </section>
+        </div>
+
+        <section id="cara">
+            <div class="Material" id="Contoh2" data-aos="fade-up" data-aos-duration="1500">
+                <h1 style=" display: flex; flex-direction: column; justify-content: center; color: #fff; font-family: mont; font-weight: bold; font-size: 35px; border: #888 solid 10px; border-radius: 40px; margin: 0px 20px; background-color: #888;">Langkah-Langkah</h1>
+                <section id="Cara">    
+                    <div class="Material1" id="Contoh1">
+                        <h2>01</h2>
+                        <img src="Assets/92494-OJBA91-562.jpg" alt="" width="130px" height="130px">
+                        <h3>Tahap 1</h3>
+                        <p>Scan Barcode pada produk yang diinginkan dengan menggunakan aplikasi BaliPay yang terdapat di Playstore.                    
+                        </p>    
+                    </div>
+                        <div class="Material1" id="Contoh4">
+                            <h2>02</h2>
+                            <img src="Assets/david-dvoracek-QiPe0UpC0_U-unsplash.jpg" alt="" width="130px" height="130px">
+                            <h3>Tahap 2</h3>
+                            <p style="text-align: start;">Nominal harga akan otomatis muncul dan jika di konfirmasi otomatis saldo BaliPay akan terpotong sesuai dengan harga yang tertera (Otomatis).                   
+                            </p>     
+                        </div>
+                    <div class="Material1" id="Contoh3">
+                        <h2>03</h2>
+                        <img src="Assets/26294.jpg" alt="" width="150px" height="130px">
+                        <h3>Tahap 3</h3>
+                        <p>Barang akan otomatis keluar dari vending machine setelah transaksi/pembayaran telah berhasil.                 
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <section id="alasan">
+            <div class="alasan-isi">
+                <img src="Assets/156574-OV8IOP-923.jpg" alt="" style=" float: right; align-items: center; justify-content: center; width: 350px; height: 350px;" data-aos="fade-up" data-aos-duration="1500">
+                <div class="contain" data-aos="fade-right" data-aos-duration="1500">
+                    <h1 style="margin-left: px; font-size: 40px; ">Kenapa Memilih BaliPay?</h1>
+                    <p style="font-family: satoshi; font-size: 1.5em; text-align: left; justify-content: left; margin-top: 35px; margin-right: 50px;">
+                        Alasan kami memilih BaliPay sebagai e-commerce adalah karena dengan menggunakan payment non tunai seperti BaliPay 
+                        ketika suatu saat mesin mengalami sedikit kesalahan maka bisa diatasi karena kita memiliki bukti transaksi telah melakukan pembayaran,
+                        selain itu Penggunaan BaliPay juga sangat mudah digunakan untuk khalayak luas.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!--CARD-->
+        <div class="kartu">
+            <div class="Biodata">
+            <h1 class="BIO">BIODATA Creator</h1>
+            <div class="card" data-aos="fade-up" >
+                <div class="content">
+                    <h2>01</h2>
+                    <img src="Narendra.jpeg" alt="" width="80px" height="100px">
+                    <h3>Narendra</h3>
+                    <p>
+                        <h4>Nama: </h4>
+                        <h5>I Gede Narendra Yasa</h5>
+                        <h4>Asal Sekolah: </h4>
+                        <h5>SMAN 2 Kuta</h5>
+                        <h4>Umur: </h4>
+                        <h5>16</h5>
+                        <h4>Tanggal Lahir: </h4>
+                        <h5>12 Juni 2006</h5>
+                    </p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <div class="content">
+                    <h2>02</h2>
+                    <img src="nathan.jpeg" alt="" width="70px" height="90px">
+                    <h3>Nathan</h3>
+                    <p>
+                        <h4>Nama : </h4>
+                        <h5>Nathan Al Tandjung</h5>
+                        <h4>Asal Sekolah : </h4>
+                        <h5>SMAN 2 Kuta</h5>
+                        <h4>Umur : </h4>
+                        <h5>16</h5>
+                        <h4>Tanggal Lahir : </h4>
+                        <h5>30 Juli 2006</h5>
+                    </p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <div class="content">
+                    <h2>03</h2>
+                    <img src="Davrian.jpg" width="70px" height="90px">
+                    <h3>Davrian</h3>
+                    <p>
+                        <h4>Nama: </h4>
+                        <h5>Putu Davrian Rockaditha</h5>
+                        <h4>Asal Sekolah: </h4>
+                        <h5>SMAN 2 Kuta</h5>
+                        <h4>Umur: </h4>
+                        <h5>16</h5>
+                        <h4>Tanggal Lahir: </h4>
+                        <h5>30 Desember 2006</h5>
+                    </p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+            </div>
+        </div>
+
+
+<!-- JS Background scale -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script type="text/javascript">
+        AOS.init();
+        
+        // window.addEventListener("scroll", function(){
+        //     let nav = document.querySelector("nav");
+        //     nav.classList.toggle("sticky", window.scrollY > 1);
+        // })
+
+        const bg = document.getElementById("Home");
+        window.addEventListener('scroll', function(){
+            bg.style.backgroundopacity = "2";
+        })
+    </script> 
+</body>
+</html>
